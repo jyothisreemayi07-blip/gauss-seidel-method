@@ -12,32 +12,10 @@ function createMatrix() {
         return;
     }
 
-    // Section heading - Step 02
-    const sectionTitle = document.createElement("div");
-    sectionTitle.className = "section-title";
-
-    const stepNumber = document.createElement("div");
-    stepNumber.className = "step-number";
-    stepNumber.textContent = "02";
-
-    const titleContent = document.createElement("div");
-
     const heading = document.createElement("h2");
     heading.textContent = "Enter Matrix Values";
+    container.appendChild(heading);
 
-    const description = document.createElement("p");
-    description.textContent =
-        "Enter the coefficients and constants of your equations.";
-
-    titleContent.appendChild(heading);
-    titleContent.appendChild(description);
-
-    sectionTitle.appendChild(stepNumber);
-    sectionTitle.appendChild(titleContent);
-
-    container.appendChild(sectionTitle);
-
-    // Matrix table
     const table = document.createElement("table");
 
     for (let i = 0; i < size; i++) {
@@ -82,32 +60,11 @@ function createInitialGuess(size) {
 
     container.innerHTML = "";
 
-    // Section heading - Step 04
-    const sectionTitle = document.createElement("div");
-    sectionTitle.className = "section-title";
-
-    const stepNumber = document.createElement("div");
-    stepNumber.className = "step-number";
-    stepNumber.textContent = "04";
-
-    const titleContent = document.createElement("div");
-
     const heading = document.createElement("h2");
     heading.textContent = "Initial Guess";
 
-    const description = document.createElement("p");
-    description.textContent =
-        "Provide the starting values for the iteration.";
+    container.appendChild(heading);
 
-    titleContent.appendChild(heading);
-    titleContent.appendChild(description);
-
-    sectionTitle.appendChild(stepNumber);
-    sectionTitle.appendChild(titleContent);
-
-    container.appendChild(sectionTitle);
-
-    // Initial guess inputs
     for (let i = 0; i < size; i++) {
 
         const label = document.createElement("label");
@@ -159,21 +116,16 @@ function solveGaussSeidel() {
     const B = [];
     const X = [];
 
-    // Read matrix values
     for (let i = 0; i < size; i++) {
 
         A[i] = [];
 
         for (let j = 0; j < size; j++) {
 
-            const value = Number(
-                matrixInputs[i * size + j].value
-            );
+            const value = Number(matrixInputs[i * size + j].value);
 
             if (!Number.isFinite(value)) {
-                displayError(
-                    "Please enter valid numbers in the matrix."
-                );
+                displayError("Please enter valid numbers in the matrix.");
                 return;
             }
 
@@ -192,9 +144,7 @@ function solveGaussSeidel() {
         const guess = Number(guessInputs[i].value);
 
         if (!Number.isFinite(guess)) {
-            displayError(
-                "Please enter valid initial guess values."
-            );
+            displayError("Please enter valid initial guess values.");
             return;
         }
 
@@ -203,6 +153,7 @@ function solveGaussSeidel() {
 
 
     // Check diagonal elements
+
     for (let i = 0; i < size; i++) {
 
         if (A[i][i] === 0) {
@@ -220,11 +171,12 @@ function solveGaussSeidel() {
 
 
     // Check diagonal dominance
+
     let diagonallyDominant = true;
 
     for (let i = 0; i < size; i++) {
 
-        const diagonal = Math.abs(A[i][i]);
+        let diagonal = Math.abs(A[i][i]);
         let offDiagonal = 0;
 
         for (let j = 0; j < size; j++) {
@@ -250,6 +202,7 @@ function solveGaussSeidel() {
 
 
     // Gauss-Seidel iterations
+
     while (iteration < maxIterations) {
 
         const oldX = [...X];
@@ -293,6 +246,7 @@ function solveGaussSeidel() {
 
 
         // Check invalid values
+
         for (let i = 0; i < size; i++) {
 
             if (!Number.isFinite(X[i])) {
@@ -308,6 +262,7 @@ function solveGaussSeidel() {
 
 
         // Calculate error
+
         let error = 0;
 
         for (let i = 0; i < size; i++) {
@@ -366,13 +321,13 @@ function displayResult(
     steps
 ) {
 
-    const container =
-        document.getElementById("resultContainer");
+    const container = document.getElementById("resultContainer");
 
     container.innerHTML = "";
 
 
     // Warning
+
     if (!diagonallyDominant) {
 
         const warning = document.createElement("div");
@@ -388,6 +343,7 @@ function displayResult(
 
 
     // Result heading
+
     const heading = document.createElement("h2");
 
     heading.textContent = "Result";
@@ -396,6 +352,7 @@ function displayResult(
 
 
     // Solution
+
     const solutionBox = document.createElement("div");
 
     solutionBox.className = "solution-box";
@@ -424,10 +381,10 @@ function displayResult(
 
 
     // Summary
+
     const summary = document.createElement("div");
 
     summary.className = "summary-grid";
-
 
     const iterationBox = document.createElement("div");
 
@@ -458,6 +415,7 @@ function displayResult(
 
 
     // Status
+
     const status = document.createElement("div");
 
     status.className = "status-box";
@@ -481,6 +439,7 @@ function displayResult(
 
 
     // Iteration history
+
     const historyHeading = document.createElement("h2");
 
     historyHeading.className = "history-title";
@@ -545,8 +504,7 @@ function displayResult(
 
         const errorCell = document.createElement("td");
 
-        errorCell.textContent =
-            record.error.toFixed(10);
+        errorCell.textContent = record.error.toFixed(10);
 
         row.appendChild(errorCell);
 
@@ -557,12 +515,12 @@ function displayResult(
 
 
     // Step-by-step calculation
+
     const stepHeading = document.createElement("h2");
 
     stepHeading.className = "history-title";
 
-    stepHeading.textContent =
-        "Step-by-Step Calculation";
+    stepHeading.textContent = "Step-by-Step Calculation";
 
     container.appendChild(stepHeading);
 
@@ -581,55 +539,41 @@ function displayResult(
 
     for (const iterationData of steps) {
 
-        const iterationBox =
-            document.createElement("div");
+        const iterationBox = document.createElement("div");
 
         iterationBox.style.marginTop = "18px";
         iterationBox.style.padding = "18px";
-        iterationBox.style.border =
-            "1px solid #e4e1f7";
+        iterationBox.style.border = "1px solid #e4e1f7";
         iterationBox.style.borderRadius = "13px";
         iterationBox.style.background = "#f8f7ff";
 
 
-        const iterationTitle =
-            document.createElement("h3");
+        const iterationTitle = document.createElement("h3");
 
         iterationTitle.textContent =
-            "Iteration " +
-            iterationData.iteration;
+            "Iteration " + iterationData.iteration;
 
-        iterationTitle.style.margin =
-            "0 0 14px";
-
-        iterationTitle.style.color =
-            "#3730a3";
+        iterationTitle.style.margin = "0 0 14px";
+        iterationTitle.style.color = "#3730a3";
 
         iterationBox.appendChild(iterationTitle);
 
 
-        for (
-            const calculationData
-            of iterationData.calculations
-        ) {
+        for (const calculationData of iterationData.calculations) {
 
-            const calculation =
-                document.createElement("div");
+            const calculation = document.createElement("div");
 
             calculation.style.marginBottom = "14px";
             calculation.style.padding = "14px";
             calculation.style.background = "#ffffff";
-            calculation.style.border =
-                "1px solid #e6e7f0";
+            calculation.style.border = "1px solid #e6e7f0";
             calculation.style.borderRadius = "10px";
 
 
-            const title =
-                document.createElement("strong");
+            const title = document.createElement("strong");
 
             title.textContent =
-                calculationData.variable +
-                " calculation";
+                calculationData.variable + " calculation";
 
             title.style.display = "block";
             title.style.marginBottom = "8px";
@@ -637,32 +581,19 @@ function displayResult(
             calculation.appendChild(title);
 
 
-            const formula =
-                document.createElement("div");
+            const formula = document.createElement("div");
 
-            formula.style.fontFamily =
-                "monospace";
-
-            formula.style.fontSize =
-                "13px";
-
-            formula.style.lineHeight =
-                "1.8";
-
-            formula.style.color =
-                "#4f46c5";
-
+            formula.style.fontFamily = "monospace";
+            formula.style.fontSize = "13px";
+            formula.style.lineHeight = "1.8";
+            formula.style.color = "#4f46c5";
 
             let expression =
-                calculationData.variable +
-                " = (" +
+                "x = (" +
                 formatNumber(calculationData.rhs);
 
 
-            for (
-                const term
-                of calculationData.terms
-            ) {
+            for (const term of calculationData.terms) {
 
                 if (term.coefficient >= 0) {
 
@@ -681,9 +612,7 @@ function displayResult(
                     expression =
                         expression +
                         " + " +
-                        formatNumber(
-                            Math.abs(term.coefficient)
-                        ) +
+                        formatNumber(Math.abs(term.coefficient)) +
                         " * " +
                         term.variable +
                         "(" +
@@ -696,19 +625,15 @@ function displayResult(
             expression =
                 expression +
                 ") / " +
-                formatNumber(
-                    calculationData.diagonal
-                );
+                formatNumber(calculationData.diagonal);
 
 
-            formula.textContent =
-                expression;
+            formula.textContent = expression;
 
             calculation.appendChild(formula);
 
 
-            const result =
-                document.createElement("div");
+            const result = document.createElement("div");
 
             result.style.marginTop = "8px";
             result.style.fontWeight = "700";
@@ -742,13 +667,11 @@ function displayError(message) {
 
     container.innerHTML = "";
 
-    const error =
-        document.createElement("div");
+    const error = document.createElement("div");
 
     error.className = "error-box";
 
-    error.textContent =
-        "Error: " + message;
+    error.textContent = "Error: " + message;
 
     container.appendChild(error);
 }
@@ -756,32 +679,18 @@ function displayError(message) {
 
 function resetAll() {
 
-    document.getElementById(
-        "matrixContainer"
-    ).innerHTML = "";
+    document.getElementById("matrixContainer").innerHTML = "";
 
-    document.getElementById(
-        "initialGuessContainer"
-    ).innerHTML = "";
+    document.getElementById("initialGuessContainer").innerHTML = "";
 
-    document.getElementById(
-        "resultContainer"
-    ).innerHTML = "";
+    document.getElementById("resultContainer").innerHTML = "";
 
-    document.getElementById(
-        "matrixSize"
-    ).value = 3;
+    document.getElementById("matrixSize").value = 3;
 
-    document.getElementById(
-        "tolerance"
-    ).value = 0.0001;
+    document.getElementById("tolerance").value = 0.0001;
 
-    document.getElementById(
-        "maxIterations"
-    ).value = 100;
+    document.getElementById("maxIterations").value = 100;
 }
 
 
-console.log(
-    "Gauss-Seidel Method is ready."
-);
+console.log("Gauss-Seidel Method is ready.");
