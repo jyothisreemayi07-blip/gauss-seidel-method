@@ -1,0 +1,898 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #4f46c5;
+    --primary-dark: #3730a3;
+    --purple: #6d5bd0;
+
+    --text: #202338;
+    --muted: #74798f;
+
+    --border: #e6e7f0;
+    --background: #f5f6fb;
+    --white: #ffffff;
+
+    --success: #198754;
+    --success-bg: #edf9f3;
+
+    --warning: #b7791f;
+    --warning-bg: #fff8e7;
+
+    --danger: #c74747;
+    --danger-bg: #fff1f1;
+}
+
+
+/* ==============================
+   PAGE
+============================== */
+
+body {
+    margin: 0;
+    padding: 35px 15px;
+
+    font-family: Arial, sans-serif;
+
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at top left,
+            #e9e7ff 0%,
+            transparent 32%
+        ),
+        linear-gradient(
+            135deg,
+            #f5f6fb,
+            #eef0f8
+        );
+
+    min-height: 100vh;
+}
+
+
+/* ==============================
+   MAIN CONTAINER
+============================== */
+
+.container {
+    width: 100%;
+    max-width: 1050px;
+
+    margin: auto;
+    padding: 42px;
+
+    background: var(--white);
+
+    border-radius: 24px;
+
+    box-shadow:
+        0 18px 50px rgba(45, 48, 95, 0.12);
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.hero {
+    text-align: center;
+
+    padding-bottom: 30px;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    padding: 7px 14px;
+
+    margin-bottom: 14px;
+
+    border-radius: 50px;
+
+    background: #eeedff;
+
+    color: var(--primary);
+
+    font-size: 11px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.3px;
+}
+
+h1 {
+    margin: 0;
+
+    font-size: 42px;
+
+    font-weight: 800;
+
+    color: var(--primary);
+}
+
+.description {
+    max-width: 700px;
+
+    margin: 13px auto 22px;
+
+    color: var(--muted);
+
+    font-size: 15px;
+
+    line-height: 1.7;
+}
+
+
+/* ==============================
+   FORMULA
+============================== */
+
+.formula-box {
+    display: inline-flex;
+
+    flex-direction: column;
+
+    gap: 6px;
+
+    padding: 14px 25px;
+
+    border-radius: 12px;
+
+    background: #f7f6ff;
+
+    border: 1px solid #e1def9;
+}
+
+.formula-box span {
+    font-size: 11px;
+
+    color: var(--muted);
+
+    font-weight: bold;
+
+    text-transform: uppercase;
+
+    letter-spacing: 0.8px;
+}
+
+.formula-box strong {
+    color: var(--primary-dark);
+
+    font-size: 18px;
+}
+
+
+/* ==============================
+   GENERAL CARDS
+============================== */
+
+.card,
+.result-card {
+    margin-top: 20px;
+
+    padding: 25px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+
+    border-radius: 17px;
+
+    box-shadow:
+        0 5px 18px rgba(40, 44, 85, 0.05);
+}
+
+
+/* Colored top lines */
+
+.setup-card {
+    border-top: 4px solid var(--primary);
+}
+
+.matrix-card {
+    border-top: 4px solid var(--purple);
+}
+
+.settings-section {
+    border-top: 4px solid #8174cf;
+}
+
+.initial-card {
+    border-top: 4px solid #6257b9;
+}
+
+.result-card {
+    border-top: 4px solid var(--success);
+}
+
+
+/* ==============================
+   SECTION TITLES
+============================== */
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin-bottom: 20px;
+}
+
+.step-number {
+    width: 44px;
+    height: 44px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    flex-shrink: 0;
+
+    border-radius: 12px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    box-shadow:
+        0 6px 14px rgba(79, 70, 197, 0.20);
+}
+
+.section-title h2 {
+    margin: 0 0 4px;
+
+    font-size: 20px;
+
+    color: var(--text);
+}
+
+.section-title p {
+    margin: 0;
+
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* ==============================
+   INPUT SECTION
+============================== */
+
+.input-section {
+    display: flex;
+
+    align-items: center;
+
+    flex-wrap: wrap;
+
+    gap: 10px;
+
+    padding: 17px;
+
+    background: #f8f8fc;
+
+    border: 1px solid #e9e9f1;
+
+    border-radius: 12px;
+}
+
+label {
+    font-weight: 700;
+
+    color: #414559;
+}
+
+
+/* ==============================
+   INPUTS
+============================== */
+
+input[type="number"] {
+    width: 95px;
+
+    padding: 10px 11px;
+
+    border: 1px solid #ccd0dc;
+
+    border-radius: 8px;
+
+    background: white;
+
+    color: var(--text);
+
+    font-size: 14px;
+
+    outline: none;
+
+    transition: 0.2s ease;
+}
+
+input[type="number"]:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 197, 0.12);
+}
+
+input[type="number"]:hover {
+    border-color: #aeb3c5;
+}
+
+
+/* ==============================
+   BUTTON BASE
+============================== */
+
+button {
+    border: none;
+
+    border-radius: 9px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   GENERATE
+============================== */
+
+.generate-button {
+    padding: 11px 20px;
+
+    background: var(--primary);
+
+    color: white;
+
+    box-shadow:
+        0 6px 14px rgba(79, 70, 197, 0.20);
+}
+
+.generate-button:hover {
+    background: var(--primary-dark);
+
+    box-shadow:
+        0 9px 20px rgba(79, 70, 197, 0.25);
+}
+
+
+/* ==============================
+   MATRIX
+============================== */
+
+#matrixContainer {
+    overflow-x: auto;
+}
+
+#matrixContainer h2 {
+    margin-top: 0;
+
+    color: var(--primary-dark);
+
+    font-size: 20px;
+}
+
+table {
+    width: 100%;
+
+    margin-top: 15px;
+
+    border-collapse: separate;
+
+    border-spacing: 0;
+
+    overflow: hidden;
+
+    border-radius: 11px;
+}
+
+th,
+td {
+    padding: 10px;
+
+    text-align: center;
+
+    border-right: 1px solid #e3e4eb;
+
+    border-bottom: 1px solid #e3e4eb;
+}
+
+th {
+    background: #f0efff;
+
+    color: var(--primary-dark);
+
+    font-size: 14px;
+}
+
+tr:first-child th {
+    border-top: 1px solid #e3e4eb;
+}
+
+tr th:first-child,
+tr td:first-child {
+    border-left: 1px solid #e3e4eb;
+}
+
+.matrix-input,
+.rhs-input {
+    width: 75px !important;
+
+    text-align: center;
+}
+
+
+/* RHS */
+
+.rhs-input {
+    background: #faf8ff !important;
+
+    border-color: #b9b2e8 !important;
+}
+
+
+/* ==============================
+   SETTINGS
+============================== */
+
+.settings-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 18px;
+}
+
+.setting-item {
+    padding: 17px;
+
+    border-radius: 12px;
+
+    background: #f8f7ff;
+
+    border: 1px solid #e4e1f7;
+}
+
+.setting-item label {
+    display: block;
+
+    margin-bottom: 5px;
+}
+
+.input-hint {
+    display: block;
+
+    color: #9296a7;
+
+    font-size: 12px;
+}
+
+.setting-item input {
+    margin-top: 11px;
+}
+
+
+/* ==============================
+   INITIAL GUESS
+============================== */
+
+#initialGuessContainer {
+    display: flex;
+
+    flex-wrap: wrap;
+
+    align-items: center;
+
+    gap: 8px;
+}
+
+#initialGuessContainer h2 {
+    width: 100%;
+
+    margin: 0 0 7px;
+
+    color: var(--primary-dark);
+
+    font-size: 20px;
+}
+
+.guess-input {
+    width: 80px !important;
+
+    text-align: center;
+}
+
+
+/* ==============================
+   ACTION BUTTONS
+============================== */
+
+.action-section {
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 14px;
+
+    margin: 30px 0 8px;
+}
+
+.solve-button,
+.reset-button {
+    min-width: 190px;
+
+    padding: 15px 24px;
+
+    font-size: 16px;
+}
+
+
+/* SOLVE */
+
+.solve-button {
+    background: var(--primary);
+
+    color: white;
+
+    box-shadow:
+        0 8px 18px rgba(79, 70, 197, 0.23);
+}
+
+.solve-button:hover {
+    background: var(--primary-dark);
+
+    box-shadow:
+        0 11px 24px rgba(79, 70, 197, 0.28);
+}
+
+
+/* RESET */
+
+.reset-button {
+    background: #f1f1f5;
+
+    color: #555a6c;
+
+    border: 1px solid #dedfe7;
+}
+
+.reset-button:hover {
+    background: #e8e8ee;
+}
+
+
+/* ==============================
+   RESULT HEADER
+============================== */
+
+.result-card h2 {
+    margin-top: 0;
+
+    color: #176b4a;
+
+    font-size: 21px;
+}
+
+
+/* ==============================
+   SOLUTION BOX
+============================== */
+
+.solution-box {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(130px, 1fr));
+
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+.solution-value {
+    padding: 15px;
+
+    text-align: center;
+
+    border-radius: 11px;
+
+    background: var(--success-bg);
+
+    border: 1px solid #c9ead8;
+}
+
+.solution-value strong {
+    display: block;
+
+    margin-top: 5px;
+
+    color: #157348;
+
+    font-size: 18px;
+}
+
+
+/* ==============================
+   SUMMARY BOX
+============================== */
+
+.summary-grid {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 12px;
+
+    margin: 18px 0;
+}
+
+.summary-item {
+    padding: 14px;
+
+    border-radius: 10px;
+
+    background: #f7f7fa;
+
+    border: 1px solid #e6e6ed;
+}
+
+.summary-item span {
+    display: block;
+
+    margin-bottom: 5px;
+
+    color: #8a8f9f;
+
+    font-size: 12px;
+}
+
+.summary-item strong {
+    color: #363a4b;
+}
+
+
+/* ==============================
+   WARNING BOX
+============================== */
+
+.warning-box {
+    width: 100%;
+
+    display: block;
+
+    margin: 0 0 20px;
+
+    padding: 17px 20px;
+
+    border-radius: 13px;
+
+    background: var(--warning-bg);
+
+    border: 1px solid #f0d895;
+
+    color: #795817;
+
+    font-size: 14px;
+
+    font-weight: 700;
+
+    line-height: 1.6;
+
+    box-shadow:
+        0 4px 12px rgba(183, 121, 31, 0.08);
+}
+
+
+/* ==============================
+   SUCCESS STATUS
+============================== */
+
+.status-box {
+    width: 100%;
+
+    padding: 17px 20px;
+
+    margin: 18px 0;
+
+    border-radius: 13px;
+
+    font-weight: 700;
+
+    line-height: 1.6;
+}
+
+.status-box.success {
+    background: var(--success-bg);
+
+    border: 1px solid #c2e5d1;
+
+    color: #166b46;
+}
+
+
+/* ==============================
+   NON-CONVERGED STATUS
+============================== */
+
+.status-box.warning {
+    background: var(--warning-bg);
+
+    border: 1px solid #efd792;
+
+    color: #795817;
+}
+
+
+/* ==============================
+   ERROR
+============================== */
+
+.error-box {
+    width: 100%;
+
+    padding: 17px 20px;
+
+    border-radius: 13px;
+
+    background: var(--danger-bg);
+
+    border: 1px solid #efc8c8;
+
+    color: #a53838;
+
+    font-weight: 700;
+
+    line-height: 1.6;
+}
+
+
+/* ==============================
+   HISTORY
+============================== */
+
+.history-title {
+    margin-top: 28px !important;
+
+    color: var(--primary-dark) !important;
+}
+
+.history-table {
+    margin-top: 15px;
+
+    box-shadow:
+        0 4px 15px rgba(40, 44, 85, 0.05);
+}
+
+.history-table th {
+    background: #f0efff;
+
+    color: var(--primary-dark);
+}
+
+.history-table td {
+    font-size: 14px;
+}
+
+.history-table tr:hover td {
+    background: #fafaff;
+}
+
+
+/* ==============================
+   FOOTER
+============================== */
+
+.footer {
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 28px;
+
+    padding-top: 17px;
+
+    border-top: 1px solid #e7e7ed;
+
+    color: #9296a5;
+
+    font-size: 12px;
+}
+
+
+/* ==============================
+   MOBILE
+============================== */
+
+@media (max-width: 700px) {
+
+    body {
+        padding: 12px 7px;
+    }
+
+    .container {
+        padding: 24px 15px;
+
+        border-radius: 18px;
+    }
+
+    h1 {
+        font-size: 31px;
+    }
+
+    .description {
+        font-size: 14px;
+    }
+
+    .formula-box {
+        width: 100%;
+    }
+
+    .card,
+    .result-card {
+        padding: 19px;
+    }
+
+    .settings-grid,
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .input-section {
+        align-items: stretch;
+    }
+
+    .input-section input {
+        width: 100%;
+    }
+
+    .generate-button {
+        width: 100%;
+    }
+
+    .action-section {
+        flex-direction: column;
+    }
+
+    .solve-button,
+    .reset-button {
+        width: 100%;
+    }
+
+    table {
+        min-width: 520px;
+    }
+
+    .footer {
+        flex-direction: column;
+
+        gap: 7px;
+
+        text-align: center;
+    }
+}
